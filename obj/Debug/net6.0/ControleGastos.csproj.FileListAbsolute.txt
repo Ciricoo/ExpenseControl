@@ -1,0 +1,14 @@
+C:\Users\Estagiario3\Desktop\Despesas e Receitas\ControleGastos\ControleGastos\obj\Debug\net6.0\ControleGastos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Estagiario3\Desktop\Despesas e Receitas\ControleGastos\ControleGastos\obj\Debug\net6.0\ControleGastos.AssemblyInfoInputs.cache
+C:\Users\Estagiario3\Desktop\Despesas e Receitas\ControleGastos\ControleGastos\obj\Debug\net6.0\ControleGastos.AssemblyInfo.cs
+C:\Users\Estagiario3\Desktop\Despesas e Receitas\ControleGastos\ControleGastos\obj\Debug\net6.0\ControleGastos.csproj.CoreCompileInputs.cache
+C:\Users\Estagiario3\Desktop\Despesas e Receitas\ControleGastos\ControleGastos\bin\Debug\net6.0\ControleGastos.exe
+C:\Users\Estagiario3\Desktop\Despesas e Receitas\ControleGastos\ControleGastos\bin\Debug\net6.0\ControleGastos.deps.json
+C:\Users\Estagiario3\Desktop\Despesas e Receitas\ControleGastos\ControleGastos\bin\Debug\net6.0\ControleGastos.runtimeconfig.json
+C:\Users\Estagiario3\Desktop\Despesas e Receitas\ControleGastos\ControleGastos\bin\Debug\net6.0\ControleGastos.dll
+C:\Users\Estagiario3\Desktop\Despesas e Receitas\ControleGastos\ControleGastos\bin\Debug\net6.0\ControleGastos.pdb
+C:\Users\Estagiario3\Desktop\Despesas e Receitas\ControleGastos\ControleGastos\obj\Debug\net6.0\ControleGastos.dll
+C:\Users\Estagiario3\Desktop\Despesas e Receitas\ControleGastos\ControleGastos\obj\Debug\net6.0\refint\ControleGastos.dll
+C:\Users\Estagiario3\Desktop\Despesas e Receitas\ControleGastos\ControleGastos\obj\Debug\net6.0\ControleGastos.pdb
+C:\Users\Estagiario3\Desktop\Despesas e Receitas\ControleGastos\ControleGastos\obj\Debug\net6.0\ControleGastos.genruntimeconfig.cache
+C:\Users\Estagiario3\Desktop\Despesas e Receitas\ControleGastos\ControleGastos\obj\Debug\net6.0\ref\ControleGastos.dll
