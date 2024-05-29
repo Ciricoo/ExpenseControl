@@ -10,8 +10,6 @@ namespace ControleDeGastos
 {
     internal class Perguntas
     {
-        static string opcaoMenu = Program.RetornarOpcao();
-
         public static void Despesas()
         {
             PerguntasCadastro("Despesas");

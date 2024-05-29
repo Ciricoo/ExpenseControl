@@ -23,8 +23,5 @@ namespace ControleDeGastos
             Descricao = descricao;
             Categoria = categoria;
         }
-
-
-
     }
 }

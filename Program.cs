@@ -31,7 +31,7 @@ namespace ControleDeGastos
                         break;
                     case "3":
                         Console.Clear();
-                        Historico.PerguntasHistorico();
+                        PerguntasHistorico.HistoricoPerguntas();
                         break;
                     case "4":
                         Console.WriteLine("Saindo do programa!");

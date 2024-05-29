@@ -11,7 +11,7 @@ namespace ControleDeGastos.Service
     {
         public void Vizualizar()
         {
-            int contagem = 0;
+            
             string opcao = Program.RetornarOpcao();
 
             Console.WriteLine("---- Vizualizar ----");
@@ -19,27 +19,18 @@ namespace ControleDeGastos.Service
             if (opcao == "1")
             {
                 Console.WriteLine("Despesas:");
-                foreach (var item in Manager.despesas)
-                {
-                    Console.WriteLine($"Id: {item.Id}, Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
-                    contagem++;
-                }
-
-                if (contagem == 0) {
+                Manager.despesas.ForEach(item => Console.WriteLine($"Id: {item.Id}, Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}"));
+                
+                if (Manager.despesas.Count == 0 ) {
                     Console.WriteLine("Não foi adicionado nenhuma despesa!");
                 }
             }
             else if (opcao == "2")
-            {
-                contagem = 0;
+            { 
                 Console.WriteLine("Receitas:");
-                foreach (var item in Manager.receitas)
-                {
-                    Console.WriteLine($"Id: {item.Id}, Data: {item.Date}, Valor: R${item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
-                    contagem++;
-                }
+                Manager.receitas.ForEach(item => Console.WriteLine($"Id: {item.Id}, Data: {item.Date}, Valor: R${item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}"));
 
-                if (contagem == 0)
+                if (Manager.receitas.Count == 0)
                 {
                     Console.WriteLine("Não foi adicionado nenhuma receita!");
                 }

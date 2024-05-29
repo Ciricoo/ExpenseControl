@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ControleDeGastos.Managers;
+using ControleGastos.Histórico;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace ControleGastos
 {
-    public class Historico
+    public class PerguntasHistorico
     {
-        public static void PerguntasHistorico()
+        public static void HistoricoPerguntas()
         {
+            Manager Manager = new Manager();
+
             while (true)
             {
                 Console.WriteLine("---- Histórico ----");
@@ -25,10 +29,13 @@ namespace ControleGastos
                 switch (opcao)
                 {
                     case "1":
+                        Manager.BuscarRangeData();
                         break;
                     case "2":
+                        Manager.BuscarValorMinimo();
                         break;
                     case "3":
+                        Manager.BuscarValorMaximo();
                         break;
                     case "4":
                         break; 
