@@ -23,14 +23,14 @@ namespace ControleDeGastos.Service
                 Console.Clear();
                 Console.WriteLine("Despesa adicionada com sucesso!");
                 Manager.despesas.Add(new DespesasReceitas(Valores.Id, Valores.Date, Valores.Valor, Valores.Descricao, Valores.Categoria));
-                Console.WriteLine($"Data: {Valores.Date}, Valor: {Valores.Valor}, Descrição: {Valores.Descricao}, Categoria: {Valores.Categoria}");
+                Console.WriteLine($"Data: {Valores.Date}, Valor: R$-{Valores.Valor}, Descrição: {Valores.Descricao}, Categoria: {Valores.Categoria}");
             }
             else if (opcao == "2")
             {
                 Console.Clear();
                 Console.WriteLine("Receita adicionada com sucesso!");
                 Manager.receitas.Add(new DespesasReceitas(Valores.Id, Valores.Date, Valores.Valor, Valores.Descricao, Valores.Categoria));
-                Console.WriteLine($"Data: {Valores.Date}, Valor: {Valores.Valor}, Descrição: {Valores.Descricao}, Categoria: {Valores.Categoria}");
+                Console.WriteLine($"Data: {Valores.Date}, Valor: R${Valores.Valor}, Descrição: {Valores.Descricao}, Categoria: {Valores.Categoria}");
             }
         }
     }

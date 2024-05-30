@@ -11,10 +11,29 @@ namespace ControleGastos.Histórico
     {
         public void BuscarCategoria()
         {
-            Console.WriteLine("Buscar por Categoria");
-            Console.WriteLine("Digite a categoria que deseja buscar:");
-            string categoria = Console.ReadLine()!;
             bool encontrado = false;
+            string categoria;
+            Console.WriteLine("Buscar por Categoria");
+            while (true)
+            {
+                Console.WriteLine("Digite a categoria que deseja buscar:");
+                categoria = Console.ReadLine()!.Trim();
+                if (string.IsNullOrEmpty(categoria))
+                {
+                    Console.WriteLine("A categoria não pode ser vazia!");
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            if (!Manager.despesas.Any() && !Manager.receitas.Any())
+            {
+                Console.WriteLine("Não existem despesas e receitas na lista!");
+                return;
+            }
+
 
             Console.Clear();
 

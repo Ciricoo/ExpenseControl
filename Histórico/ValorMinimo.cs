@@ -22,6 +22,14 @@ namespace ControleGastos.Histórico
             var menorDespesa = Manager.despesas.Any() ? Manager.despesas.Min(d => d.Valor) : (double?)null;
             var menorReceita = Manager.receitas.Any() ? Manager.receitas.Min(d => d.Valor) : (double?)null;
 
+            if( menorDespesa.HasValue && menorReceita.HasValue)
+            {
+                Console.WriteLine("Menor Despesa:");
+                ExibirDetalhes(Manager.despesas.First(d => d.Valor == menorDespesa.Value));
+                Console.WriteLine("Menor Receita:");
+                ExibirDetalhes(Manager.receitas.First(d => d.Valor == menorReceita.Value));
+            }
+
             if (menorDespesa.HasValue)
             {
                 Console.Clear();
@@ -43,7 +51,7 @@ namespace ControleGastos.Histórico
             }
             else
             {
-                Console.WriteLine("Não foi adicionado nenhuma despesa!");
+                Console.WriteLine("Não foi adicionado nenhuma receita!");
             }
         }
 

@@ -42,7 +42,6 @@ namespace ControleDeGastos
                 }
             }
         }
-
         public static string RetornarOpcao()
         {
             return opcao;

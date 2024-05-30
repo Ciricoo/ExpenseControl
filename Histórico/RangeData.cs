@@ -37,6 +37,12 @@ namespace ControleGastos.Histórico
             }
             Console.Clear();
 
+            if (!Manager.despesas.Any() && !Manager.receitas.Any())
+            {
+                Console.WriteLine("Não existem despesas e receitas na lista!");
+                return;
+            }
+
             foreach (DespesasReceitas item in Manager.despesas)
             {
                 if (item.Date >= dataInicial && item.Date <= dataFinal)
@@ -56,12 +62,8 @@ namespace ControleGastos.Histórico
                     Console.WriteLine($"Data: {item.Date}, Valor: R${item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
                 }
             }
-
-            if(Manager.despesas.Count <= 0 && Manager.receitas.Count <= 0)
-            {
-                Console.WriteLine("Não existem item na lista!");
-            }
-            else if (!encontrou)
+      
+            if (!encontrou)
             {
                 Console.WriteLine("Não foi encontrado Despesas ou Receitas nas Datas estipuladas!");
             }

@@ -17,12 +17,14 @@ namespace ControleGastos.Funções
             string opcao = Program.RetornarOpcao();
             DateOnly dataTime;
             float valor;
+            string categoria;
+            string descricao;
             while (true)
             {
                 while (true)
                 {
                     Console.WriteLine("\nData: (dd/MM/yyyy):");
-                    string data = Console.ReadLine()!;
+                    string data = Console.ReadLine()!.Trim();
 
                     if (!DateOnly.TryParse(data, out dataTime))
                     {
@@ -34,32 +36,59 @@ namespace ControleGastos.Funções
                     }
                 }
 
-                Console.WriteLine("Valor:");
-                string valorString = Console.ReadLine()!;
-
-                if (string.IsNullOrEmpty(valorString) || !float.TryParse(valorString, out valor))
+                while (true)
                 {
+                    Console.WriteLine("Valor:");
+                    string valorString = Console.ReadLine()!.Trim();
 
-                    Console.WriteLine("Valor inválido!");
-                    continue;
+                    if (string.IsNullOrEmpty(valorString) || !float.TryParse(valorString, out valor))
+                    {
+
+                        Console.WriteLine("Valor inválido!");
+                        continue;
+                    }
+                    else if(valor <= 0)
+                    {
+                        Console.WriteLine("Não pode ser adicionado um valor negativo ou sem valor!");
+                        continue;
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
-                Console.WriteLine("Descrição:");
-                string descricao = Console.ReadLine()!;
 
-                if (string.IsNullOrEmpty(descricao))
+                while (true)
                 {
+                    Console.WriteLine("Descrição:");
+                     descricao = Console.ReadLine()!.Trim();
 
-                    Console.WriteLine("Valor inválido!");
-                    continue;
+                    if (string.IsNullOrEmpty(descricao))
+                    {
+
+                        Console.WriteLine("Descrição não pode ser vazia!");
+                        continue;
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
-                Console.WriteLine("Categoria:");
-                string categoria = Console.ReadLine()!;
-
-                if (string.IsNullOrEmpty(categoria))
+                while (true)
                 {
+                    Console.WriteLine("Categoria:");
+                    categoria = Console.ReadLine()!.Trim();
 
-                    Console.WriteLine("Valor inválido!");
-                    continue;
+                    if (string.IsNullOrEmpty(categoria))
+                    {
+
+                        Console.WriteLine("Categoria não pode ser vazia!");
+                        continue;
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
 
                 switch (opcao)

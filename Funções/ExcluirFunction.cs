@@ -16,7 +16,11 @@ namespace ControleGastos.Service
             Console.WriteLine("Excluir");
 
             Console.WriteLine("Digite o Id que deseja editar:");
-            int id = int.Parse(Console.ReadLine()!);
+            if (!int.TryParse(Console.ReadLine(), out int id))
+            {
+                Console.WriteLine("Id inválido!");
+                return;
+            }
 
             DespesasReceitas? item;
 
@@ -38,7 +42,7 @@ namespace ControleGastos.Service
 
             if (item == null)
             {
-                Console.WriteLine($"{(opcao == "1" ? "Desepesa" : "Receita")} não encontrada!");
+                Console.WriteLine($"{(opcao == "1" ? "Despesa" : "Receita")} não encontrada!");
                 return;
             }
             Console.Clear();

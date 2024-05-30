@@ -12,12 +12,29 @@ namespace ControleGastos.Histórico
     {
         public void BuscarDescricao()
         {
-            Console.WriteLine("Buscar por Descrição");
-            Console.WriteLine("Digite a descrição que deseja buscar:");
-            string descricao = Console.ReadLine()!;
             bool encontrado = false;
+            string descricao;
+            Console.WriteLine("Buscar por Descrição");
+            while (true)
+            {
+                Console.WriteLine("Digite a descrição que deseja buscar:");
+                descricao = Console.ReadLine()!.Trim();
+                if (string.IsNullOrEmpty(descricao))
+                {
+                    Console.WriteLine("A descrição não pode ser vazia!");
+                }
+                else
+                {
+                    break;
+                }
+            }
 
             Console.Clear();
+
+            if(!Manager.despesas.Any() && !Manager.receitas.Any()) {
+                Console.WriteLine("Não existem despesas e receitas na lista!");
+                return;
+            }
 
             foreach (var item in Manager.despesas)
             {
