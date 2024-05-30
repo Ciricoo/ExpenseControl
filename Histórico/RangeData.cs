@@ -13,12 +13,13 @@ namespace ControleGastos.Histórico
     {
         public void BuscarDatas()
         {
-            bool verificaData = true;
             DateOnly dataInicial;
             DateOnly dataFinal;
             bool encontrou = false;
-            while (verificaData)
+            while (true)
             {
+                Console.WriteLine("Buscar por Range de Datas");
+
                 Console.WriteLine("Data inicial: (dd/MM/yyyy)");
                 string data1 = Console.ReadLine()!;
                 Console.WriteLine("Data final: (dd/MM/yyyy)");
@@ -31,9 +32,10 @@ namespace ControleGastos.Histórico
 
                 else
                 {
-                    verificaData = false;
+                    break;
                 }
             }
+            Console.Clear();
 
             foreach (DespesasReceitas item in Manager.despesas)
             {

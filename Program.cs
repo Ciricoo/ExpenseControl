@@ -10,7 +10,7 @@ namespace ControleDeGastos
         {
             while (true)
             {
-                Console.WriteLine("\nBem Vindo ao Sistema de Controle de Gastos!");
+                Console.WriteLine("Bem Vindo ao Sistema de Controle de Gastos!");
                 Console.WriteLine("\n[1] - Despesas");
                 Console.WriteLine("[2] - Receitas");
                 Console.WriteLine("[3] - Histórico");

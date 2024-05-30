@@ -1,4 +1,5 @@
 ﻿using ControleDeGastos.Managers;
+using ControleGastos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,11 @@ namespace ControleDeGastos.Service
             
             string opcao = Program.RetornarOpcao();
 
-            Console.WriteLine("---- Vizualizar ----");
+            Console.WriteLine("Vizualizar");
 
             if (opcao == "1")
             {
+                Console.Clear();
                 Console.WriteLine("Despesas:");
                 Manager.despesas.ForEach(item => Console.WriteLine($"Id: {item.Id}, Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}"));
                 
@@ -26,7 +28,8 @@ namespace ControleDeGastos.Service
                 }
             }
             else if (opcao == "2")
-            { 
+            {
+                Console.Clear();
                 Console.WriteLine("Receitas:");
                 Manager.receitas.ForEach(item => Console.WriteLine($"Id: {item.Id}, Data: {item.Date}, Valor: R${item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}"));
 
@@ -35,7 +38,6 @@ namespace ControleDeGastos.Service
                     Console.WriteLine("Não foi adicionado nenhuma receita!");
                 }
             }
-
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ControleDeGastos.Managers;
+using ControleGastos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace ControleDeGastos
 
             while (true)
             {
-                Console.WriteLine($" ---- {type} ----");
+                Console.WriteLine(type);
                 Console.WriteLine($"\n[1] - Adicionar {type}");
                 Console.WriteLine($"[2] - Vizualizar {type}");
                 Console.WriteLine($"[3] - Editar {type}");

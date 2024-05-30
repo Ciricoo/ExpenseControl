@@ -16,7 +16,7 @@ namespace ControleGastos
 
             while (true)
             {
-                Console.WriteLine("---- Histórico ----");
+                Console.WriteLine("Bem Vindo ao Sistema de Controle de Gastos!");
                 Console.WriteLine("\nEscolha um método de filtragem:");
                 Console.WriteLine("[1] - Por data (ex: 01/01/2022 à 01/01/2023)");
                 Console.WriteLine("[2] - Valor mínimo");
@@ -38,8 +38,10 @@ namespace ControleGastos
                         Manager.BuscarValorMaximo();
                         break;
                     case "4":
+                        Manager.BuscarDescricao();
                         break; 
                     case "5":
+                        Manager.BuscarCategoria();
                         break;
                     case "6":
                         Console.Clear();

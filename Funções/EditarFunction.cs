@@ -1,7 +1,9 @@
 ﻿using ControleDeGastos;
 using ControleDeGastos.Managers;
+using ControleGastos.Funções;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +17,11 @@ namespace ControleGastos.Service
             Console.WriteLine("---- Editar ----");
 
             Console.WriteLine("Digite o Id que deseja editar:");
-            int id = int.Parse(Console.ReadLine()!);
+            if(!int.TryParse(Console.ReadLine(), out int id))
+            {
+                Console.WriteLine("Id inválido!");
+                return;
+            }
 
             DespesasReceitas? item;
 
@@ -41,25 +47,12 @@ namespace ControleGastos.Service
 
             Console.WriteLine("Digite os novos valores");
 
-            Console.WriteLine("\nData: (dd/MM/yyyy):");
-            string data = Console.ReadLine()!;
+            var Valores = PegaValores.Valores();
 
-            if (!DateOnly.TryParse(data, out DateOnly dataTime))
-            {
-                Console.WriteLine("Formato inválido, por favor use o formato (dd/MM/yyyy)");
-            }
-
-            Console.WriteLine("Valor:");
-            float valor = float.Parse(Console.ReadLine()!);
-            Console.WriteLine("Descrição:");
-            string descricao = Console.ReadLine()!;
-            Console.WriteLine("Categoria:");
-            string categoria = Console.ReadLine()!;
-
-            item.Date = dataTime;
-            item.Valor = valor;
-            item.Descricao = descricao;
-            item.Categoria = categoria;
+            item.Date = Valores.Date;
+            item.Valor = Valores.Valor;
+            item.Descricao = Valores.Descricao;
+            item.Categoria = Valores.Categoria;
 
             Console.Clear();
             Console.WriteLine($"Data: {item.Date}, Valor: {item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");

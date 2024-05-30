@@ -13,7 +13,7 @@ namespace ControleGastos.Service
         string opcao = Program.RetornarOpcao();
         public void Excluir() {
 
-            Console.WriteLine("---- Excluir ----");
+            Console.WriteLine("Excluir");
 
             Console.WriteLine("Digite o Id que deseja editar:");
             int id = int.Parse(Console.ReadLine()!);
@@ -41,7 +41,7 @@ namespace ControleGastos.Service
                 Console.WriteLine($"{(opcao == "1" ? "Desepesa" : "Receita")} não encontrada!");
                 return;
             }
-
+            Console.Clear();
             Console.WriteLine($"Data: {item!.Date}, Valor: {item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
             Console.WriteLine($"{(opcao == "1" ? "Despesa" : "Receita")} removida com sucesso!");
         }

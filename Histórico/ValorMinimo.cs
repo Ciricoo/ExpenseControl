@@ -11,43 +11,45 @@ namespace ControleGastos.Histórico
     internal class ValorMinimo
     {
         public void BuscarValorMinimo() {
-        
-            DespesasReceitas? menorDespesas = Manager.despesas.OrderBy(d => d.Valor).FirstOrDefault();
-            DespesasReceitas? menorReceitas = Manager.receitas.OrderBy(d => d.Valor).FirstOrDefault();  
 
-            if(menorDespesas != null && menorReceitas != null)
-            {
-                Console.WriteLine("Menor despesa: ");
-                ExibirDetalhes(menorDespesas);
-                Console.WriteLine("\nMenor receita:");
-                ExibirDetalhes(menorReceitas);
+            Console.WriteLine("Buscar por Valor Mínimo");
+
+            if(!Manager.despesas.Any() && !Manager.receitas.Any()) {
+                Console.WriteLine("Nenhuma despesa ou receita foi adicionada!");
+                return;
             }
-            else if(menorDespesas != null)
+
+            var menorDespesa = Manager.despesas.Any() ? Manager.despesas.Min(d => d.Valor) : (double?)null;
+            var menorReceita = Manager.receitas.Any() ? Manager.receitas.Min(d => d.Valor) : (double?)null;
+
+            if (menorDespesa.HasValue)
             {
-                Console.WriteLine("Menor despesa: ");
-                ExibirDetalhes(menorDespesas);
-                Console.WriteLine("\nNenhuma receita adicionada!");
-            }
-            else if(menorReceitas != null)
-            {
-                Console.Write("Menor receita: ");
-                ExibirDetalhes(menorReceitas);
-                Console.WriteLine("\nNenhuma despesa adicionada!");
+                Console.Clear();
+                Console.WriteLine("Menor Despesa:");
+                ExibirDetalhes(Manager.despesas.First(d => d.Valor == menorDespesa.Value));
             }
             else
             {
-                Console.WriteLine("Nenhuma despesa e receita foi adicionada!");
+                Console.WriteLine("Não foi adicionado nenhuma despesa!");
             }
-        
+
+            Console.WriteLine();
+
+            if (menorReceita.HasValue)
+            {
+                Console.Clear();
+                Console.WriteLine("Menor Receita:");
+                ExibirDetalhes(Manager.receitas.First(d => d.Valor == menorReceita.Value));
+            }
+            else
+            {
+                Console.WriteLine("Não foi adicionado nenhuma despesa!");
+            }
         }
 
         public static void ExibirDetalhes(DespesasReceitas item)
         {
-            Console.WriteLine($"Id: {item.Id}");
-            Console.WriteLine($"Data: {item.Date}");
-            Console.WriteLine($"Valor: {item.Valor}");
-            Console.WriteLine($"Descrição: {item.Descricao}");
-            Console.WriteLine($"Categoria: {item.Categoria}");
+            Console.WriteLine($"Data: {item.Date}, Valor: {item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
         }
     }
 }

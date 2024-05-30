@@ -18,6 +18,8 @@ namespace ControleDeGastos.Managers
         RangeData RangeData = new RangeData();
         ValorMinimo ValorMinimo = new ValorMinimo();
         ValorMaximo ValorMaximo = new ValorMaximo();
+        Descricao Descricao = new Descricao();
+        Categoria Categoria = new Categoria();
 
         public static List<DespesasReceitas> despesas = new List<DespesasReceitas>();
         public static List<DespesasReceitas> receitas = new List<DespesasReceitas>();
@@ -60,17 +62,20 @@ namespace ControleDeGastos.Managers
 
         public void BuscarValorMaximo()
         {
+            Console.Clear();
             ValorMaximo.BucarValorMaximo();
         }
 
         public void BuscarDescricao()
         {
-
+            Console.Clear();
+            Descricao.BuscarDescricao();
         }
 
         public void BuscarCategoria()
         {
-
+            Console.Clear();
+            Categoria.BuscarCategoria();
         }
     }
 }
