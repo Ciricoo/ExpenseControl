@@ -16,7 +16,7 @@ namespace ControleGastos.Service
         public void Editar() {
             Console.WriteLine("Editar");
 
-            Console.WriteLine("Digite o Id que deseja editar:");
+            Console.WriteLine("\nDigite o Id que deseja editar:");
             if(!int.TryParse(Console.ReadLine(), out int id))
             {
                 Console.WriteLine("Id inválido!");

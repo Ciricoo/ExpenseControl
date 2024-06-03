@@ -34,7 +34,6 @@ namespace ControleGastos.Histórico
                 return;
             }
 
-
             Console.Clear();
 
             foreach (var item in Manager.despesas)

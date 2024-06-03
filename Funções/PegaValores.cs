@@ -100,8 +100,6 @@ namespace ControleGastos.Funções
                     case "2":
                         idReceitas++;
                         return new DespesasReceitas(idReceitas, dataTime, valor, descricao, categoria);
-                    default:
-                        throw new InvalidOperationException("Opção inválida!");
                 }
 
             }

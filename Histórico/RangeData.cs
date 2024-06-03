@@ -29,7 +29,6 @@ namespace ControleGastos.Histórico
                 {
                     Console.WriteLine("Data inválida, use o formato: (dd/MM/yyyy)");
                 }
-
                 else
                 {
                     break;

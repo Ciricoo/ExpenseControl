@@ -21,18 +21,18 @@ namespace ControleDeGastos
         }
 
 
-        public static void PerguntasCadastro(string type)
+        public static void PerguntasCadastro(string DespesaOuReceita)
         {
             Manager Manager = new Manager();
 
             while (true)
             {
                 Console.WriteLine("================================================");
-                Console.WriteLine(type);
-                Console.WriteLine($"\n[1] - Adicionar {type}");
-                Console.WriteLine($"[2] - Vizualizar {type}");
-                Console.WriteLine($"[3] - Editar {type}");
-                Console.WriteLine($"[4] - Excluir {type}");
+                Console.WriteLine(DespesaOuReceita);
+                Console.WriteLine($"\n[1] - Adicionar {DespesaOuReceita}");
+                Console.WriteLine($"[2] - Vizualizar {DespesaOuReceita}");
+                Console.WriteLine($"[3] - Editar {DespesaOuReceita}");
+                Console.WriteLine($"[4] - Excluir {DespesaOuReceita}");
                 Console.WriteLine("[5] - Sair");
                 Console.WriteLine("================================================");
                 Console.Write("Opção: ");

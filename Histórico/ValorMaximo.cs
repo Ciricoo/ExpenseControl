@@ -20,25 +20,24 @@ namespace ControleGastos.Histórico
                 return;
             }
 
-            var maiorDespesa = Manager.despesas.Any() ? Manager.despesas.Max(d => d.Valor) : (double?)null;
-            var maiorReceita = Manager.receitas.Any() ? Manager.receitas.Max(d => d.Valor) : (double?)null;
-
             Console.Clear();
 
-            if( maiorDespesa.HasValue )
+            if( Manager.despesas.Count != 0 )
             {
+                var maiorDespesa = Manager.despesas.Max(d => d.Valor);
                 Console.WriteLine("Maior Despesa:");
-                var itemDespesa = Manager.despesas.First(d => d.Valor == maiorDespesa.Value);
+                var itemDespesa = Manager.despesas.First(d => d.Valor == maiorDespesa);
                 Console.WriteLine($"Data: {itemDespesa.Date}, Valor: R$-{itemDespesa.Valor}, Descrição: {itemDespesa.Descricao}, Categoria: {itemDespesa.Categoria}");
             }
             else
             {
                 Console.WriteLine("Não foi adicionado nenhuma despesa!");
             }
-            if( maiorReceita.HasValue )
+            if( Manager.receitas.Count != 0 )
             {
+                var maiorReceita = Manager.receitas.Max(d => d.Valor);
                 Console.WriteLine("Maior Receita:");
-                var itemReceita = Manager.receitas.First(d => d.Valor == maiorReceita.Value);
+                var itemReceita = Manager.receitas.First(d => d.Valor == maiorReceita);
                 Console.WriteLine($"Data: {itemReceita.Date}, Valor: R${itemReceita.Valor}, Descrição: {itemReceita.Descricao}, Categoria: {itemReceita.Categoria}");
             }
             else
