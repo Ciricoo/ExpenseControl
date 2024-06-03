@@ -11,44 +11,35 @@ namespace ControleGastos.Histórico
     internal class ValorMaximo
     {
         public void BucarValorMaximo()
-        {
+        {;
             Console.WriteLine("Buscar por Valor Máximo");
 
             if (!Manager.despesas.Any() && !Manager.receitas.Any())
             {
-                Console.WriteLine("Nenhuma despesa ou receita foi adicionada!");
+                Console.WriteLine("Nenhuma despesa e receita foi adicionada!");
                 return;
             }
 
             var maiorDespesa = Manager.despesas.Any() ? Manager.despesas.Max(d => d.Valor) : (double?)null;
             var maiorReceita = Manager.receitas.Any() ? Manager.receitas.Max(d => d.Valor) : (double?)null;
 
-            if (maiorDespesa.HasValue && maiorReceita.HasValue)
-            {
-                Console.WriteLine("Menor Despesa:");
-                ValorMinimo.ExibirDetalhes(Manager.despesas.First(d => d.Valor == maiorDespesa.Value));
-                Console.WriteLine("Menor Receita:");
-                ValorMinimo.ExibirDetalhes(Manager.receitas.First(d => d.Valor == maiorReceita.Value));
-            }
+            Console.Clear();
 
-            if (maiorDespesa.HasValue)
+            if( maiorDespesa.HasValue )
             {
-                Console.Clear();
                 Console.WriteLine("Maior Despesa:");
-                ValorMinimo.ExibirDetalhes(Manager.despesas.First(d => d.Valor == maiorDespesa.Value));
+                var itemDespesa = Manager.despesas.First(d => d.Valor == maiorDespesa.Value);
+                Console.WriteLine($"Data: {itemDespesa.Date}, Valor: R$-{itemDespesa.Valor}, Descrição: {itemDespesa.Descricao}, Categoria: {itemDespesa.Categoria}");
             }
             else
             {
                 Console.WriteLine("Não foi adicionado nenhuma despesa!");
             }
-
-            Console.WriteLine();
-
-            if (maiorReceita.HasValue)
+            if( maiorReceita.HasValue )
             {
-                Console.Clear();
                 Console.WriteLine("Maior Receita:");
-                ValorMinimo.ExibirDetalhes(Manager.receitas.First(d => d.Valor == maiorReceita.Value));
+                var itemReceita = Manager.receitas.First(d => d.Valor == maiorReceita.Value);
+                Console.WriteLine($"Data: {itemReceita.Date}, Valor: R${itemReceita.Valor}, Descrição: {itemReceita.Descricao}, Categoria: {itemReceita.Categoria}");
             }
             else
             {

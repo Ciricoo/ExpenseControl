@@ -16,7 +16,8 @@ namespace ControleGastos
 
             while (true)
             {
-                Console.WriteLine("Bem Vindo ao Sistema de Controle de Gastos!");
+                Console.WriteLine("================================================");
+                Console.WriteLine("Histórico");
                 Console.WriteLine("\nEscolha um método de filtragem:");
                 Console.WriteLine("[1] - Por data (ex: 01/01/2022 à 01/01/2023)");
                 Console.WriteLine("[2] - Valor mínimo");
@@ -24,7 +25,9 @@ namespace ControleGastos
                 Console.WriteLine("[4] - Descrição");
                 Console.WriteLine("[5] - Categoria");
                 Console.WriteLine("[6] - Sair");
-                string opcao = Console.ReadLine()!;
+                Console.WriteLine("================================================");
+                Console.Write("Opção: ");
+                string opcao = Console.ReadLine()!.Trim();
 
                 switch (opcao)
                 {

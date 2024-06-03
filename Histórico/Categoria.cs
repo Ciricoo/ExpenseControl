@@ -42,7 +42,7 @@ namespace ControleGastos.Histórico
                 if (item.Categoria.Equals(categoria, StringComparison.OrdinalIgnoreCase))
                 {
                     Console.Write("Despesa:");
-                    Console.WriteLine($"Data: {item.Date}, Valor: {item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
+                    Console.WriteLine($"Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
                     encontrado = true;
                 }
             }
@@ -51,7 +51,7 @@ namespace ControleGastos.Histórico
                 if (item.Categoria.Equals(categoria, StringComparison.OrdinalIgnoreCase))
                 {
                     Console.Write("Receita:");
-                    Console.WriteLine($"Data: {item.Date}, Valor: {item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
+                    Console.WriteLine($"Data: {item.Date}, Valor: R${item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
                     encontrado = true;
                 }
             }

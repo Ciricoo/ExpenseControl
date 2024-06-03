@@ -10,13 +10,17 @@ namespace ControleDeGastos
         {
             while (true)
             {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Title = "Controle de Gastos";
+                Console.WriteLine("================================================");
                 Console.WriteLine("Bem Vindo ao Sistema de Controle de Gastos!");
                 Console.WriteLine("\n[1] - Despesas");
                 Console.WriteLine("[2] - Receitas");
                 Console.WriteLine("[3] - Histórico");
                 Console.WriteLine("[4] - Sair");
+                Console.WriteLine("================================================");
                 Console.Write("Opção: ");
-                opcao = Console.ReadLine()!;
+                opcao = Console.ReadLine()!.Trim();
 
 
                 switch (opcao)

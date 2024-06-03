@@ -27,14 +27,16 @@ namespace ControleDeGastos
 
             while (true)
             {
+                Console.WriteLine("================================================");
                 Console.WriteLine(type);
                 Console.WriteLine($"\n[1] - Adicionar {type}");
                 Console.WriteLine($"[2] - Vizualizar {type}");
                 Console.WriteLine($"[3] - Editar {type}");
                 Console.WriteLine($"[4] - Excluir {type}");
                 Console.WriteLine("[5] - Sair");
+                Console.WriteLine("================================================");
                 Console.Write("Opção: ");
-                string opcao = Console.ReadLine()!;
+                string opcao = Console.ReadLine()!.Trim();
 
                 switch (opcao)
                 {

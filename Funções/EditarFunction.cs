@@ -14,7 +14,7 @@ namespace ControleGastos.Service
     {
         string opcao = Program.RetornarOpcao();
         public void Editar() {
-            Console.WriteLine("---- Editar ----");
+            Console.WriteLine("Editar");
 
             Console.WriteLine("Digite o Id que deseja editar:");
             if(!int.TryParse(Console.ReadLine(), out int id))
@@ -55,7 +55,7 @@ namespace ControleGastos.Service
             item.Categoria = Valores.Categoria;
 
             Console.Clear();
-            Console.WriteLine($"Data: {item.Date}, {( opcao == "1" ? "Valor: R$-{item.Valor}" : "Valor: R${item.Valor}")}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
+            Console.WriteLine($"Data: {item.Date}, {(opcao == "1" ? $"Valor: R$-{item.Valor}": $"Valor: R${item.Valor}")}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
             Console.WriteLine($"{(opcao == "1" ? "Despesa" : "Receita")} atualizada com sucesso!");
         }
     }

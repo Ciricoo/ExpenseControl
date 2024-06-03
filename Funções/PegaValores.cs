@@ -19,6 +19,7 @@ namespace ControleGastos.Funções
             float valor;
             string categoria;
             string descricao;
+
             while (true)
             {
                 while (true)

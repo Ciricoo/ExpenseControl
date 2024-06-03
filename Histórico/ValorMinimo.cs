@@ -15,49 +15,36 @@ namespace ControleGastos.Histórico
             Console.WriteLine("Buscar por Valor Mínimo");
 
             if(!Manager.despesas.Any() && !Manager.receitas.Any()) {
-                Console.WriteLine("Nenhuma despesa ou receita foi adicionada!");
+                Console.WriteLine("Nenhuma despesa e receita foi adicionada!");
                 return;
             }
 
             var menorDespesa = Manager.despesas.Any() ? Manager.despesas.Min(d => d.Valor) : (double?)null;
             var menorReceita = Manager.receitas.Any() ? Manager.receitas.Min(d => d.Valor) : (double?)null;
 
-            if( menorDespesa.HasValue && menorReceita.HasValue)
-            {
-                Console.WriteLine("Menor Despesa:");
-                ExibirDetalhes(Manager.despesas.First(d => d.Valor == menorDespesa.Value));
-                Console.WriteLine("Menor Receita:");
-                ExibirDetalhes(Manager.receitas.First(d => d.Valor == menorReceita.Value));
-            }
+            Console.Clear();
 
             if (menorDespesa.HasValue)
             {
-                Console.Clear();
                 Console.WriteLine("Menor Despesa:");
-                ExibirDetalhes(Manager.despesas.First(d => d.Valor == menorDespesa.Value));
+                var itemDespesa = Manager.despesas.First(d => d.Valor == menorDespesa.Value);
+                Console.WriteLine($"Data: {itemDespesa.Date}, Valor: R$-{itemDespesa.Valor}, Descrição: {itemDespesa.Descricao}, Categoria: {itemDespesa.Categoria}");
             }
             else
             {
                 Console.WriteLine("Não foi adicionado nenhuma despesa!");
             }
 
-            Console.WriteLine();
-
             if (menorReceita.HasValue)
             {
-                Console.Clear();
                 Console.WriteLine("Menor Receita:");
-                ExibirDetalhes(Manager.receitas.First(d => d.Valor == menorReceita.Value));
+                var itemReceita = Manager.receitas.First(d => d.Valor == menorReceita.Value);
+                Console.WriteLine($"Data: {itemReceita.Date}, Valor: R${itemReceita.Valor}, Descrição: {itemReceita.Descricao}, Categoria: {itemReceita.Categoria}");
             }
             else
             {
                 Console.WriteLine("Não foi adicionado nenhuma receita!");
             }
-        }
-
-        public static void ExibirDetalhes(DespesasReceitas item)
-        {
-            Console.WriteLine($"Data: {item.Date}, Valor: {item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
         }
     }
 }
