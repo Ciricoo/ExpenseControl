@@ -27,11 +27,11 @@ namespace ControleGastos.Service
 
             if(opcao == "1")
             {
-                item = Manager.despesas.FirstOrDefault(d => d.Id == id);
+                item = Manager.despesas.Find(d => d.Id == id);
             }
             else if(opcao == "2")
             {
-                item = Manager.receitas.FirstOrDefault(d => d.Id == id);
+                item = Manager.receitas.Find(d => d.Id == id);
             }
             else
             {

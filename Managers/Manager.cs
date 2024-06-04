@@ -20,6 +20,7 @@ namespace ControleDeGastos.Managers
         ValorMaximo ValorMaximo = new ValorMaximo();
         Descricao Descricao = new Descricao();
         Categoria Categoria = new Categoria();
+        VizualizarTodos VizualizarTodos = new VizualizarTodos();
 
         public static List<DespesasReceitas> despesas = new List<DespesasReceitas>();
         public static List<DespesasReceitas> receitas = new List<DespesasReceitas>();
@@ -76,6 +77,12 @@ namespace ControleDeGastos.Managers
         {
             Console.Clear();
             Categoria.BuscarCategoria();
+        }
+
+        public void BuscarTodos()
+        {
+            Console.Clear();
+            VizualizarTodos.BuscarTodos();
         }
     }
 }

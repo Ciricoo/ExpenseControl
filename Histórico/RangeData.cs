@@ -16,6 +16,13 @@ namespace ControleGastos.Histórico
             DateOnly dataInicial;
             DateOnly dataFinal;
             bool encontrou = false;
+
+            if (!Manager.despesas.Any() && !Manager.receitas.Any())
+            {
+                Console.WriteLine("Não existem despesas e receitas na lista!");
+                return;
+            }
+
             while (true)
             {
                 Console.WriteLine("Buscar por Range de Datas");
@@ -35,12 +42,6 @@ namespace ControleGastos.Histórico
                 }
             }
             Console.Clear();
-
-            if (!Manager.despesas.Any() && !Manager.receitas.Any())
-            {
-                Console.WriteLine("Não existem despesas e receitas na lista!");
-                return;
-            }
 
             foreach (DespesasReceitas item in Manager.despesas)
             {

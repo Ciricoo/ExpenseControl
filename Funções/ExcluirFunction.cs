@@ -26,12 +26,12 @@ namespace ControleGastos.Service
 
             if (opcao == "1")
             {
-                item = Manager.despesas.FirstOrDefault(d => d.Id == id);
+                item = Manager.despesas.Find(d => d.Id == id);
                 Manager.despesas.Remove(item!);
             }
             else if (opcao == "2")
             {
-                item = Manager.receitas.FirstOrDefault(d => d.Id == id);
+                item = Manager.receitas.Find(d => d.Id == id);
                 Manager.despesas.Remove(item!);
             }
             else
@@ -42,7 +42,7 @@ namespace ControleGastos.Service
 
             if (item == null)
             {
-                Console.WriteLine($"{(opcao == "1" ? "Despesa" : "Receita")} não encontrada!");
+                Console.WriteLine($"{(opcao == "1" ? "Despesa" : "Receit a")} não encontrada!");
                 return;
             }
             Console.Clear();

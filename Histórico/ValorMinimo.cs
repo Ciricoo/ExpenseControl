@@ -19,15 +19,13 @@ namespace ControleGastos.Histórico
                 return;
             }
 
-            var menorDespesa = Manager.despesas.Any() ? Manager.despesas.Min(d => d.Valor) : (double?)null;
-            var menorReceita = Manager.receitas.Any() ? Manager.receitas.Min(d => d.Valor) : (double?)null;
-
             Console.Clear();
 
-            if (menorDespesa.HasValue)
+            if (Manager.despesas.Count != 0)
             {
+                var menorDespesa = Manager.despesas.Min(d => d.Valor);
                 Console.WriteLine("Menor Despesa:");
-                var itemDespesa = Manager.despesas.First(d => d.Valor == menorDespesa.Value);
+                var itemDespesa = Manager.despesas.First(d => d.Valor == menorDespesa);
                 Console.WriteLine($"Data: {itemDespesa.Date}, Valor: R$-{itemDespesa.Valor}, Descrição: {itemDespesa.Descricao}, Categoria: {itemDespesa.Categoria}");
             }
             else
@@ -35,10 +33,11 @@ namespace ControleGastos.Histórico
                 Console.WriteLine("Não foi adicionado nenhuma despesa!");
             }
 
-            if (menorReceita.HasValue)
+            if (Manager.receitas.Count != 0)
             {
+                var menorReceita = Manager.receitas.Min(d => d.Valor);
                 Console.WriteLine("Menor Receita:");
-                var itemReceita = Manager.receitas.First(d => d.Valor == menorReceita.Value);
+                var itemReceita = Manager.receitas.First(d => d.Valor == menorReceita);
                 Console.WriteLine($"Data: {itemReceita.Date}, Valor: R${itemReceita.Valor}, Descrição: {itemReceita.Descricao}, Categoria: {itemReceita.Categoria}");
             }
             else
