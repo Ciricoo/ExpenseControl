@@ -19,7 +19,7 @@ namespace ControleGastos.Funções
             {
                 while (true)
                 {
-                    Console.WriteLine("\nData: (dd/MM/yyyy):");
+                    Console.WriteLine("Data: (dd/MM/yyyy):");
                     string data = Console.ReadLine()!.Trim();
 
                     if (!DateOnly.TryParse(data, out dataTime))

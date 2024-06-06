@@ -6,14 +6,12 @@ namespace ControleGastos.Histórico
     {
         public void BuscarValorMinimo() {
 
-            Console.WriteLine("Buscar por Valor Mínimo");
+            Console.WriteLine("Buscar por Valor Mínimo\n");
 
             if(!Manager.despesas.Any() && !Manager.receitas.Any()) {
                 Console.WriteLine("Nenhuma despesa e receita foi adicionada!");
                 return;
             }
-
-            Console.Clear();
 
             if (Manager.despesas.Count == 0)
             {

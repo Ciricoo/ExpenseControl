@@ -9,10 +9,19 @@ namespace ControleGastos.Relatório
             DateOnly dataInicial;
             DateOnly dataFinal;
 
-            Console.WriteLine("Gerar Relatório");
+            Console.WriteLine("Gerar Relatório\n");
+
+            if (!Manager.despesas.Any() && !Manager.receitas.Any())
+            {
+                Console.WriteLine("Nenhuma despesa e receita foi adicionada!");
+                return;
+            }
+
+            
+
             while (true)
             {
-                Console.WriteLine("\nData inicial: (dd/MM/yyyy)");
+                Console.WriteLine("Data inicial: (dd/MM/yyyy)");
                 string data1 = Console.ReadLine()!;
                 Console.WriteLine("Data final: (dd/MM/yyyy)");
                 string data2 = Console.ReadLine()!;
@@ -32,7 +41,7 @@ namespace ControleGastos.Relatório
                     break;
                 }
             }
-            Console.Clear();
+            
 
             var despesasFiltradas = Manager.despesas.Where(t => t.Date >= dataInicial && t.Date <= dataFinal);
             var receitaFiltradas = Manager.receitas.Where(t => t.Date >= dataInicial && t.Date <= dataFinal);
@@ -41,8 +50,8 @@ namespace ControleGastos.Relatório
             var totalReceitas = receitaFiltradas.Sum(t => t.Valor);
             var total = totalReceitas - totalDespesas;
 
-
-            Console.WriteLine("Relatório Financeiro");
+            Console.Clear();
+            Console.WriteLine("Relatório Financeiro\n");
             Console.WriteLine($"Período: {dataInicial:dd/MM/yyyy} - {dataFinal:dd/MM/yyyy}");
             Console.WriteLine($"Total de Receitas: R$ {totalReceitas}");
             Console.WriteLine($"Total de Despesas: R$-{totalDespesas}");

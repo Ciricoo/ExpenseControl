@@ -11,7 +11,7 @@ namespace ControleGastos.Histórico
             DateOnly dataFinal;
             bool encontrou = false;
 
-            Console.WriteLine("Buscar por Range de Datas");
+            Console.WriteLine("Buscar por Range de Datas\n");
 
             if (!Manager.despesas.Any() && !Manager.receitas.Any())
             {

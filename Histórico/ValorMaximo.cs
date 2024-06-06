@@ -6,15 +6,13 @@ namespace ControleGastos.Histórico
     {
         public void BucarValorMaximo()
         {;
-            Console.WriteLine("Buscar por Valor Máximo");
+            Console.WriteLine("Buscar por Valor Máximo\n");
 
             if (!Manager.despesas.Any() && !Manager.receitas.Any())
             {
                 Console.WriteLine("Nenhuma despesa e receita foi adicionada!");
                 return;
             }
-
-            Console.Clear();
 
             if( Manager.despesas.Count == 0 )
             {

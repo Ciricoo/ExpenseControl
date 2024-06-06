@@ -8,9 +8,9 @@ namespace ControleGastos.Service
     {
         string opcao = Program.RetornarOpcao();
         public void Editar() {
-            Console.WriteLine("Editar");
+            Console.WriteLine("Editar\n");
 
-            Console.WriteLine("\nDigite o Id que deseja editar:");
+            Console.WriteLine("Digite o Id que deseja editar:");
             if(!int.TryParse(Console.ReadLine(), out int id))
             {
                 Console.WriteLine("Id inválido!");

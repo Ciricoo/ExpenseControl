@@ -9,7 +9,7 @@ namespace ControleGastos.Histórico
             bool encontrado = false;
             string categoria;
 
-            Console.WriteLine("Buscar por Categoria");
+            Console.WriteLine("Buscar por Categoria\n");
 
             if (!Manager.despesas.Any() && !Manager.receitas.Any())
             {

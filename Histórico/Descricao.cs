@@ -8,7 +8,7 @@ namespace ControleGastos.Histórico
         {
             bool encontrado = false;
             string descricao;
-            Console.WriteLine("Buscar por Descrição");
+            Console.WriteLine("Buscar por Descrição\n");
 
             if (!Manager.despesas.Any() && !Manager.receitas.Any())
             {
