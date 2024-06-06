@@ -1,12 +1,6 @@
 ﻿using ControleDeGastos;
 using ControleDeGastos.Managers;
 using ControleGastos.Funções;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleGastos.Service
 {
@@ -55,8 +49,9 @@ namespace ControleGastos.Service
             item.Categoria = Valores.Categoria;
 
             Console.Clear();
-            Console.WriteLine($"Data: {item.Date}, {(opcao == "1" ? $"Valor: R$-{item.Valor}": $"Valor: R${item.Valor}")}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
             Console.WriteLine($"{(opcao == "1" ? "Despesa" : "Receita")} atualizada com sucesso!");
+            Console.WriteLine($"Data: {item.Date}, {(opcao == "1" ? $"Valor: R$-{item.Valor}": $"Valor: R${item.Valor}")}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
+            
         }
     }
 }

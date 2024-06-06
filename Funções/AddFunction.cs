@@ -1,11 +1,5 @@
 ﻿using ControleDeGastos.Managers;
-using ControleGastos;
 using ControleGastos.Funções;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleDeGastos.Service
 {
@@ -15,7 +9,7 @@ namespace ControleDeGastos.Service
         public void Adicionar()
         {
             string opcao = Program.RetornarOpcao();
-            Console.WriteLine("Adicionar");
+            Console.WriteLine("Adicionar\n");
 
             var Valores = PegaValores.Valores();
 

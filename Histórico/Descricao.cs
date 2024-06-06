@@ -1,10 +1,4 @@
-﻿using ControleDeGastos;
-using ControleDeGastos.Managers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ControleDeGastos.Managers;
 
 namespace ControleGastos.Histórico
 {
@@ -15,6 +9,12 @@ namespace ControleGastos.Histórico
             bool encontrado = false;
             string descricao;
             Console.WriteLine("Buscar por Descrição");
+
+            if (!Manager.despesas.Any() && !Manager.receitas.Any())
+            {
+                Console.WriteLine("Não existem despesas e receitas na lista!");
+                return;
+            }
             while (true)
             {
                 Console.WriteLine("Digite a descrição que deseja buscar:");
@@ -31,17 +31,11 @@ namespace ControleGastos.Histórico
 
             Console.Clear();
 
-            if(!Manager.despesas.Any() && !Manager.receitas.Any()) {
-                Console.WriteLine("Não existem despesas e receitas na lista!");
-                return;
-            }
-
             foreach (var item in Manager.despesas)
             {
                 if(item.Descricao.Equals(descricao, StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.Write("Despesa:");
-                    Console.WriteLine($"Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
+                    Console.WriteLine($"Despesa: Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
                     encontrado = true;
                 }
             }
@@ -49,8 +43,7 @@ namespace ControleGastos.Histórico
             {
                 if (item.Descricao.Equals(descricao, StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.Write("Receita:");
-                    Console.WriteLine($"Data: {item.Date}, Valor: R${item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
+                    Console.WriteLine($"Receita: Data: {item.Date}, Valor: R${item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
                     encontrado = true;
                 }
             }

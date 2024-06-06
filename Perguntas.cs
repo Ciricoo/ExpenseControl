@@ -1,13 +1,6 @@
 ﻿using ControleDeGastos.Managers;
-using ControleGastos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ControleDeGastos
+namespace ControleGastos
 {
     internal class Perguntas
     {
@@ -19,7 +12,6 @@ namespace ControleDeGastos
         {
             PerguntasCadastro("Receitas");
         }
-
 
         public static void PerguntasCadastro(string DespesaOuReceita)
         {

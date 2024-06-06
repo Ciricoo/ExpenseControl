@@ -1,11 +1,5 @@
 ﻿using ControleDeGastos;
 using ControleDeGastos.Managers;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleGastos.Histórico
 {
@@ -17,6 +11,8 @@ namespace ControleGastos.Histórico
             DateOnly dataFinal;
             bool encontrou = false;
 
+            Console.WriteLine("Buscar por Range de Datas");
+
             if (!Manager.despesas.Any() && !Manager.receitas.Any())
             {
                 Console.WriteLine("Não existem despesas e receitas na lista!");
@@ -25,8 +21,6 @@ namespace ControleGastos.Histórico
 
             while (true)
             {
-                Console.WriteLine("Buscar por Range de Datas");
-
                 Console.WriteLine("Data inicial: (dd/MM/yyyy)");
                 string data1 = Console.ReadLine()!;
                 Console.WriteLine("Data final: (dd/MM/yyyy)");
@@ -34,7 +28,13 @@ namespace ControleGastos.Histórico
 
                 if (!DateOnly.TryParse(data1, out dataInicial) || !DateOnly.TryParse(data2, out dataFinal))
                 {
+                    
                     Console.WriteLine("Data inválida, use o formato: (dd/MM/yyyy)");
+                }
+                else if (dataInicial > dataFinal)
+                {
+                    Console.Clear();
+                    Console.WriteLine("A data inicial não pode ser maior que a final!");
                 }
                 else
                 {
@@ -48,8 +48,7 @@ namespace ControleGastos.Histórico
                 if (item.Date >= dataInicial && item.Date <= dataFinal)
                 {
                     encontrou = true;
-                    Console.Write("\nDespesa:");
-                    Console.WriteLine($"Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
+                    Console.WriteLine($"Despesa: Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
                 }
             }
 
@@ -58,14 +57,13 @@ namespace ControleGastos.Histórico
                 if (item.Date >= dataInicial && item.Date <= dataFinal)
                 {
                     encontrou = true;
-                    Console.Write("\nReceita:");
-                    Console.WriteLine($"Data: {item.Date}, Valor: R${item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
+                    Console.WriteLine($"Receita: Data: {item.Date}, Valor: R${item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
                 }
             }
       
             if (!encontrou)
             {
-                Console.WriteLine("Não foi encontrado Despesas ou Receitas nas Datas estipuladas!");
+                Console.WriteLine("Não foi encontrado Despesas e Receitas nas Datas estipuladas!");
             }
         }
     }

@@ -1,10 +1,4 @@
 ﻿using ControleDeGastos.Managers;
-using ControleGastos.Histórico;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleGastos
 {
@@ -43,7 +37,7 @@ namespace ControleGastos
                         break;
                     case "4":
                         Manager.BuscarDescricao();
-                        break; 
+                        break;
                     case "5":
                         Manager.BuscarCategoria();
                         break;

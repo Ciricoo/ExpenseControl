@@ -1,9 +1,4 @@
 ﻿using ControleDeGastos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleGastos.Funções
 {
@@ -66,7 +61,6 @@ namespace ControleGastos.Funções
 
                     if (string.IsNullOrEmpty(descricao))
                     {
-
                         Console.WriteLine("Descrição não pode ser vazia!");
                         continue;
                     }

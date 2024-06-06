@@ -1,10 +1,4 @@
 ﻿using ControleDeGastos.Managers;
-using ControleDeGastos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleGastos.Histórico
 {
@@ -22,27 +16,27 @@ namespace ControleGastos.Histórico
 
             Console.Clear();
 
-            if( Manager.despesas.Count != 0 )
+            if( Manager.despesas.Count == 0 )
+            {
+                Console.WriteLine("Não foi adicionado nenhuma despesa!");
+            }
+            else
             {
                 var maiorDespesa = Manager.despesas.Max(d => d.Valor);
                 Console.WriteLine("Maior Despesa:");
                 var itemDespesa = Manager.despesas.First(d => d.Valor == maiorDespesa);
                 Console.WriteLine($"Data: {itemDespesa.Date}, Valor: R$-{itemDespesa.Valor}, Descrição: {itemDespesa.Descricao}, Categoria: {itemDespesa.Categoria}");
             }
-            else
+            if( Manager.receitas.Count == 0 )
             {
-                Console.WriteLine("Não foi adicionado nenhuma despesa!");
+                Console.WriteLine("Não foi adicionado nenhuma receita!");
             }
-            if( Manager.receitas.Count != 0 )
+            else
             {
                 var maiorReceita = Manager.receitas.Max(d => d.Valor);
                 Console.WriteLine("Maior Receita:");
                 var itemReceita = Manager.receitas.First(d => d.Valor == maiorReceita);
                 Console.WriteLine($"Data: {itemReceita.Date}, Valor: R${itemReceita.Valor}, Descrição: {itemReceita.Descricao}, Categoria: {itemReceita.Categoria}");
-            }
-            else
-            {
-                Console.WriteLine("Não foi adicionado nenhuma receita!");
             }
         }
     }

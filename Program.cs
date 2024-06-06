@@ -1,4 +1,5 @@
 ﻿using ControleGastos;
+using ControleGastos.Relatório;
 using System;
 
 namespace ControleDeGastos
@@ -17,7 +18,8 @@ namespace ControleDeGastos
                 Console.WriteLine("\n[1] - Despesas");
                 Console.WriteLine("[2] - Receitas");
                 Console.WriteLine("[3] - Histórico");
-                Console.WriteLine("[4] - Sair");
+                Console.WriteLine("[4] - Relatório");
+                Console.WriteLine("[5] - Sair");
                 Console.WriteLine("================================================");
                 Console.Write("Opção: ");
                 opcao = Console.ReadLine()!.Trim();
@@ -38,6 +40,10 @@ namespace ControleDeGastos
                         PerguntasHistorico.HistoricoPerguntas();
                         break;
                     case "4":
+                        Console.Clear();
+                        PerguntasRelatorio.PerguntaRelatorio();
+                        break;
+                    case "5":
                         Console.WriteLine("Saindo do programa!");
                         return;
                     default:

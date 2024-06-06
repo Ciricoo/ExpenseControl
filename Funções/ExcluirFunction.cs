@@ -1,10 +1,5 @@
 ﻿using ControleDeGastos;
 using ControleDeGastos.Managers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleGastos.Service
 {
@@ -13,7 +8,7 @@ namespace ControleGastos.Service
         string opcao = Program.RetornarOpcao();
         public void Excluir() {
 
-            Console.WriteLine("Excluir");
+            Console.WriteLine("Excluir\n");
 
             Console.WriteLine("Digite o Id que deseja editar:");
             if (!int.TryParse(Console.ReadLine(), out int id))
@@ -42,12 +37,13 @@ namespace ControleGastos.Service
 
             if (item == null)
             {
-                Console.WriteLine($"{(opcao == "1" ? "Despesa" : "Receit a")} não encontrada!");
+                Console.WriteLine($"{(opcao == "1" ? "Despesa" : "Receita")} não encontrada!");
                 return;
             }
             Console.Clear();
-            Console.WriteLine($"Data: {item!.Date}, {(opcao == "1" ? $"Valor: R$-{item.Valor}" : $"Valor: R${item.Valor}")}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
             Console.WriteLine($"{(opcao == "1" ? "Despesa" : "Receita")} removida com sucesso!");
+            Console.WriteLine($"Data: {item!.Date}, {(opcao == "1" ? $"Valor: R$-{item.Valor}" : $"Valor: R${item.Valor}")}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
+            
         }
     }
 }

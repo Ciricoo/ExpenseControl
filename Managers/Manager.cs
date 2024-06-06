@@ -1,11 +1,7 @@
 ﻿using ControleDeGastos.Service;
 using ControleGastos.Histórico;
+using ControleGastos.Relatório;
 using ControleGastos.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleDeGastos.Managers
 {
@@ -21,6 +17,7 @@ namespace ControleDeGastos.Managers
         Descricao Descricao = new Descricao();
         Categoria Categoria = new Categoria();
         VizualizarTodos VizualizarTodos = new VizualizarTodos();
+        GerarRelatorio GerarRelatorio = new GerarRelatorio();  
 
         public static List<DespesasReceitas> despesas = new List<DespesasReceitas>();
         public static List<DespesasReceitas> receitas = new List<DespesasReceitas>();
@@ -83,6 +80,12 @@ namespace ControleDeGastos.Managers
         {
             Console.Clear();
             VizualizarTodos.BuscarTodos();
+        }
+
+        public void GerarRelatorioFinanceiro()
+        {
+            Console.Clear();
+            GerarRelatorio.GerarRelatorioFinanceiro();
         }
     }
 }
