@@ -3,11 +3,9 @@
 namespace ControleGastos.Funções
 {
     internal class PegaValores
-    { 
-
+    {
         public static DespesasReceitas Valores()
         {
-            string opcao = Program.RetornarOpcao();
             DateOnly dataTime;
             float valor;
             string categoria;
