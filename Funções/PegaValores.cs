@@ -3,9 +3,7 @@
 namespace ControleGastos.Funções
 {
     internal class PegaValores
-    {
-        public static int idDespesas = 0;
-        public static int idReceitas = 0;
+    { 
 
         public static DespesasReceitas Valores()
         {
@@ -86,15 +84,7 @@ namespace ControleGastos.Funções
                     }
                 }
 
-                switch (opcao)
-                {
-                    case "1":
-                        idDespesas++;
-                        return new DespesasReceitas(idDespesas, dataTime, valor, descricao, categoria);
-                    case "2":
-                        idReceitas++;
-                        return new DespesasReceitas(idReceitas, dataTime, valor, descricao, categoria);
-                }
+                return new DespesasReceitas(0, dataTime, valor, descricao, categoria);
 
             }
         }

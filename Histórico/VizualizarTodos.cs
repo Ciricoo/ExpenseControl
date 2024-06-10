@@ -13,7 +13,7 @@ namespace ControleGastos.Histórico
                 return;
             }
 
-            if (Manager.despesas.Count == 0)
+            if (!Manager.despesas.Any())
             {
                 Console.WriteLine("Não foi adicionado nenhuma despesa!");
             }
@@ -23,7 +23,7 @@ namespace ControleGastos.Histórico
                 Manager.despesas.ForEach(item => Console.WriteLine($"Id: {item.Id}, Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}"));
             }
 
-            if (Manager.receitas.Count == 0)
+            if (!Manager.receitas.Any())
             {
                 Console.WriteLine("Não foi adicionado nenhuma receita!");
             }

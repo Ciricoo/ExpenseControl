@@ -14,7 +14,7 @@ namespace ControleGastos.Histórico
                 return;
             }
 
-            if( Manager.despesas.Count == 0 )
+            if(!Manager.despesas.Any())
             {
                 Console.WriteLine("Não foi adicionado nenhuma despesa!");
             }
@@ -25,7 +25,7 @@ namespace ControleGastos.Histórico
                 var itemDespesa = Manager.despesas.First(d => d.Valor == maiorDespesa);
                 Console.WriteLine($"Data: {itemDespesa.Date}, Valor: R$-{itemDespesa.Valor}, Descrição: {itemDespesa.Descricao}, Categoria: {itemDespesa.Categoria}");
             }
-            if( Manager.receitas.Count == 0 )
+            if(!Manager.receitas.Any())
             {
                 Console.WriteLine("Não foi adicionado nenhuma receita!");
             }

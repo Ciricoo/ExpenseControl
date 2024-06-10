@@ -16,9 +16,6 @@ namespace ControleGastos.Relatório
                 Console.WriteLine("Nenhuma despesa e receita foi adicionada!");
                 return;
             }
-
-            
-
             while (true)
             {
                 Console.WriteLine("Data inicial: (dd/MM/yyyy)");

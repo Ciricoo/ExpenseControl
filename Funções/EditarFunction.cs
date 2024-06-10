@@ -7,11 +7,12 @@ namespace ControleGastos.Service
     internal class EditarFunction
     {
         string opcao = Program.RetornarOpcao();
-        public void Editar() {
+        public void Editar()
+        {
             Console.WriteLine("Editar\n");
 
             Console.WriteLine("Digite o Id que deseja editar:");
-            if(!int.TryParse(Console.ReadLine(), out int id))
+            if (!int.TryParse(Console.ReadLine(), out int id))
             {
                 Console.WriteLine("Id inválido!");
                 return;
@@ -19,11 +20,11 @@ namespace ControleGastos.Service
 
             DespesasReceitas? item;
 
-            if(opcao == "1")
+            if (opcao == "1")
             {
                 item = Manager.despesas.Find(d => d.Id == id);
             }
-            else if(opcao == "2")
+            else if (opcao == "2")
             {
                 item = Manager.receitas.Find(d => d.Id == id);
             }
@@ -33,7 +34,8 @@ namespace ControleGastos.Service
                 return;
             }
 
-            if( item == null)
+
+            if (item == null)
             {
                 Console.WriteLine($"{(opcao == "1" ? "Despesa" : "Receita")} não encontrada!");
                 return;
@@ -50,8 +52,8 @@ namespace ControleGastos.Service
 
             Console.Clear();
             Console.WriteLine($"{(opcao == "1" ? "Despesa" : "Receita")} atualizada com sucesso!");
-            Console.WriteLine($"Data: {item.Date}, {(opcao == "1" ? $"Valor: R$-{item.Valor}": $"Valor: R${item.Valor}")}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
-            
+            Console.WriteLine($"Data: {item.Date}, {(opcao == "1" ? $"Valor: R$-{item.Valor}" : $"Valor: R${item.Valor}")}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
+
         }
     }
 }

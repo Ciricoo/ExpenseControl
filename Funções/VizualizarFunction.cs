@@ -13,7 +13,7 @@ namespace ControleDeGastos.Service
 
             if (opcao == "1")
             {
-                if (Manager.despesas.Count == 0)
+                if (!Manager.despesas.Any())
                 {
                     Console.WriteLine("Não foi adicionado nenhuma despesa!");
                 }
@@ -26,7 +26,7 @@ namespace ControleDeGastos.Service
             }
             else if (opcao == "2")
             {
-                if (Manager.receitas.Count == 0)
+                if (!Manager.receitas.Any())
                 {
                     Console.WriteLine("Não foi adicionado nenhuma receita!");
                 }
