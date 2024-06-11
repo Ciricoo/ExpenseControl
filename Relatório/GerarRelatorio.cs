@@ -9,6 +9,8 @@ namespace ControleGastos.Relatório
             DateOnly dataInicial;
             DateOnly dataFinal;
 
+            Console.Clear();
+
             Console.WriteLine("Gerar Relatório\n");
 
             if (!Manager.despesas.Any() && !Manager.receitas.Any())
@@ -43,9 +45,9 @@ namespace ControleGastos.Relatório
             var despesasFiltradas = Manager.despesas.Where(t => t.Date >= dataInicial && t.Date <= dataFinal);
             var receitaFiltradas = Manager.receitas.Where(t => t.Date >= dataInicial && t.Date <= dataFinal);
 
-            var totalDespesas = despesasFiltradas.Sum(t => t.Valor);
-            var totalReceitas = receitaFiltradas.Sum(t => t.Valor);
-            var total = totalReceitas - totalDespesas;
+            float totalDespesas = despesasFiltradas.Sum(t => t.Valor);
+            float totalReceitas = receitaFiltradas.Sum(t => t.Valor);
+            float total = totalReceitas - totalDespesas;
 
             Console.Clear();
             Console.WriteLine("Relatório Financeiro\n");

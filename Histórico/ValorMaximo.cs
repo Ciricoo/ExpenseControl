@@ -1,4 +1,5 @@
-﻿using ControleDeGastos.Managers;
+﻿using ControleDeGastos;
+using ControleDeGastos.Managers;
 
 namespace ControleGastos.Histórico
 {
@@ -20,9 +21,9 @@ namespace ControleGastos.Histórico
             }
             else
             {
-                var maiorDespesa = Manager.despesas.Max(d => d.Valor);
+                float maiorDespesa = Manager.despesas.Max(d => d.Valor);
                 Console.WriteLine("Maior Despesa:");
-                var itemDespesa = Manager.despesas.First(d => d.Valor == maiorDespesa);
+                DespesasReceitas itemDespesa = Manager.despesas.First(d => d.Valor == maiorDespesa);
                 Console.WriteLine($"Data: {itemDespesa.Date}, Valor: R$-{itemDespesa.Valor}, Descrição: {itemDespesa.Descricao}, Categoria: {itemDespesa.Categoria}");
             }
             if(!Manager.receitas.Any())
@@ -31,9 +32,9 @@ namespace ControleGastos.Histórico
             }
             else
             {
-                var maiorReceita = Manager.receitas.Max(d => d.Valor);
+                float maiorReceita = Manager.receitas.Max(d => d.Valor);
                 Console.WriteLine("Maior Receita:");
-                var itemReceita = Manager.receitas.First(d => d.Valor == maiorReceita);
+                DespesasReceitas itemReceita = Manager.receitas.First(d => d.Valor == maiorReceita);
                 Console.WriteLine($"Data: {itemReceita.Date}, Valor: R${itemReceita.Valor}, Descrição: {itemReceita.Descricao}, Categoria: {itemReceita.Categoria}");
             }
         }

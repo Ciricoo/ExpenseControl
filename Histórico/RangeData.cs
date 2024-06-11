@@ -28,7 +28,6 @@ namespace ControleGastos.Histórico
 
                 if (!DateOnly.TryParse(data1, out dataInicial) || !DateOnly.TryParse(data2, out dataFinal))
                 {
-                    
                     Console.WriteLine("Data inválida, use o formato: (dd/MM/yyyy)");
                 }
                 else if (dataInicial > dataFinal)

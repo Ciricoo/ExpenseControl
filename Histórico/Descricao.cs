@@ -1,4 +1,5 @@
-﻿using ControleDeGastos.Managers;
+﻿using ControleDeGastos;
+using ControleDeGastos.Managers;
 
 namespace ControleGastos.Histórico
 {
@@ -15,6 +16,7 @@ namespace ControleGastos.Histórico
                 Console.WriteLine("Não existem despesas e receitas na lista!");
                 return;
             }
+
             while (true)
             {
                 Console.WriteLine("Digite a descrição que deseja buscar:");
@@ -31,7 +33,7 @@ namespace ControleGastos.Histórico
 
             Console.Clear();
 
-            foreach (var item in Manager.despesas)
+            foreach (DespesasReceitas item in Manager.despesas)
             {
                 if(item.Descricao.Equals(descricao, StringComparison.OrdinalIgnoreCase))
                 {
@@ -39,7 +41,7 @@ namespace ControleGastos.Histórico
                     encontrado = true;
                 }
             }
-            foreach (var item in Manager.receitas)
+            foreach (DespesasReceitas item in Manager.receitas)
             {
                 if (item.Descricao.Equals(descricao, StringComparison.OrdinalIgnoreCase))
                 {

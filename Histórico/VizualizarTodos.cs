@@ -7,6 +7,7 @@ namespace ControleGastos.Histórico
         public void BuscarTodos()
         {
             Console.WriteLine("Vizualizar Todos\n");
+
             if (!Manager.despesas.Any() && !Manager.receitas.Any())
             {
                 Console.WriteLine("Nenhuma despesa e receita foi adicionada!");

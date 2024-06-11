@@ -29,6 +29,7 @@ namespace ControleGastos
                 Console.WriteLine("================================================");
                 Console.Write("Opção: ");
                 string opcao = Console.ReadLine()!.Trim();
+                Console.WriteLine();
 
                 switch (opcao)
                 {

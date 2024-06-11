@@ -7,7 +7,7 @@ namespace ControleDeGastos.Managers
 {
     public class Manager
     {
-        AddFunction AddFuncion = new AddFunction();
+        AddFunction AddFunction = new AddFunction();
         VizualizarFunction VizualizarFunction = new VizualizarFunction();
         EditarFunction EditarFunction = new EditarFunction();
         ExcluirFunction ExcluirFunction = new ExcluirFunction();
@@ -25,7 +25,7 @@ namespace ControleDeGastos.Managers
         public void Adicionar()
         {
             Console.Clear();
-            AddFuncion.Adicionar();
+            AddFunction.Adicionar();
         }
 
         public void Vizualizar()

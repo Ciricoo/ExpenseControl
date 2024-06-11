@@ -1,4 +1,5 @@
-﻿using ControleDeGastos.Managers;
+﻿using ControleDeGastos;
+using ControleDeGastos.Managers;
 
 namespace ControleGastos.Histórico
 {
@@ -19,9 +20,9 @@ namespace ControleGastos.Histórico
             }
             else
             {
-                var menorDespesa = Manager.despesas.Min(d => d.Valor);
+                float menorDespesa = Manager.despesas.Min(d => d.Valor);
                 Console.WriteLine("Menor Despesa:");
-                var itemDespesa = Manager.despesas.First(d => d.Valor == menorDespesa);
+                DespesasReceitas itemDespesa = Manager.despesas.First(d => d.Valor == menorDespesa);
                 Console.WriteLine($"Data: {itemDespesa.Date}, Valor: R$-{itemDespesa.Valor}, Descrição: {itemDespesa.Descricao}, Categoria: {itemDespesa.Categoria}");
             }
 
@@ -31,9 +32,9 @@ namespace ControleGastos.Histórico
             }
             else
             {
-                var menorReceita = Manager.receitas.Min(d => d.Valor);
+                float menorReceita = Manager.receitas.Min(d => d.Valor);
                 Console.WriteLine("Menor Receita:");
-                var itemReceita = Manager.receitas.First(d => d.Valor == menorReceita);
+                DespesasReceitas itemReceita = Manager.receitas.First(d => d.Valor == menorReceita);
                 Console.WriteLine($"Data: {itemReceita.Date}, Valor: R${itemReceita.Valor}, Descrição: {itemReceita.Descricao}, Categoria: {itemReceita.Categoria}");
             }
         }

@@ -34,7 +34,7 @@ namespace ControleGastos.Service
                 Console.WriteLine("Opção inválida!");
                 return;
             }
-
+            
             if (item == null)
             {
                 Console.WriteLine($"{(opcao == "1" ? "Despesa" : "Receita")} não encontrada!");

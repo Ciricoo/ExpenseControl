@@ -1,4 +1,5 @@
-﻿using ControleGastos;
+﻿using ControleDeGastos.Managers;
+using ControleGastos;
 using ControleGastos.Relatório;
 using System;
 
@@ -9,6 +10,8 @@ namespace ControleDeGastos
         private static string opcao = "";
         public static void Main(string[] args)
         {
+            Manager Manager = new Manager();
+
             while (true)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -41,7 +44,7 @@ namespace ControleDeGastos
                         break;
                     case "4":
                         Console.Clear();
-                        PerguntasRelatorio.PerguntaRelatorio();
+                        Manager.GerarRelatorioFinanceiro(); ;
                         break;
                     case "5":
                         Console.WriteLine("Saindo do programa!");

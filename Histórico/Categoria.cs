@@ -1,4 +1,5 @@
-﻿using ControleDeGastos.Managers;
+﻿using ControleDeGastos;
+using ControleDeGastos.Managers;
 
 namespace ControleGastos.Histórico
 {
@@ -32,7 +33,7 @@ namespace ControleGastos.Histórico
 
             Console.Clear();
 
-            foreach (var item in Manager.despesas)
+            foreach (DespesasReceitas item in Manager.despesas)
             {
                 if (item.Categoria.Equals(categoria, StringComparison.OrdinalIgnoreCase))
                 {
@@ -40,7 +41,7 @@ namespace ControleGastos.Histórico
                     encontrado = true;
                 }
             }
-            foreach (var item in Manager.receitas)
+            foreach (DespesasReceitas item in Manager.receitas)
             {
                 if (item.Categoria.Equals(categoria, StringComparison.OrdinalIgnoreCase))
                 {
