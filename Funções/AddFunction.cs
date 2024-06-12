@@ -7,12 +7,12 @@ namespace ControleDeGastos.Service
     {
         public static int idDespesas = 0;
         public static int idReceitas = 0;
+        string opcao = Program.RetornarOpcao();
         public void Adicionar()
         {
-            string opcao = Program.RetornarOpcao();
             Console.WriteLine("Adicionar\n");
 
-            var Valores = PegaValores.Valores();
+            DespesasReceitas Valores = PegaValores.Valores();
 
             if (opcao == "1")
             {
@@ -21,7 +21,7 @@ namespace ControleDeGastos.Service
                 Console.Clear();
                 Console.WriteLine("Despesa adicionada com sucesso!");
                 Manager.despesas.Add(new DespesasReceitas(Valores.Id, Valores.Date, Valores.Valor, Valores.Descricao, Valores.Categoria));
-                Console.WriteLine($"Data: {Valores.Date}, Valor: R$-{Valores.Valor}, Descrição: {Valores.Descricao}, Categoria: {Valores.Categoria}");
+                Console.WriteLine($"Id: {Valores.Id} Data: {Valores.Date}, Valor: R$-{Valores.Valor}, Descrição: {Valores.Descricao}, Categoria: {Valores.Categoria}");
             }
             else if (opcao == "2")
             {
@@ -30,7 +30,7 @@ namespace ControleDeGastos.Service
                 Console.Clear();
                 Console.WriteLine("Receita adicionada com sucesso!");
                 Manager.receitas.Add(new DespesasReceitas(Valores.Id, Valores.Date, Valores.Valor, Valores.Descricao, Valores.Categoria));
-                Console.WriteLine($"Data: {Valores.Date}, Valor: R${Valores.Valor}, Descrição: {Valores.Descricao}, Categoria: {Valores.Categoria}");
+                Console.WriteLine($"Id: {Valores.Id}, Data: {Valores.Date}, Valor: R${Valores.Valor}, Descrição: {Valores.Descricao}, Categoria: {Valores.Categoria}");
             }
         }
     }

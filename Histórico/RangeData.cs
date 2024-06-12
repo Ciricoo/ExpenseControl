@@ -9,7 +9,6 @@ namespace ControleGastos.Histórico
         {
             DateOnly dataInicial;
             DateOnly dataFinal;
-            bool encontrou = false;
 
             Console.WriteLine("Buscar por Range de Datas\n");
 
@@ -40,30 +39,14 @@ namespace ControleGastos.Histórico
                     break;
                 }
             }
+
             Console.Clear();
 
-            foreach (DespesasReceitas item in Manager.despesas)
-            {
-                if (item.Date >= dataInicial && item.Date <= dataFinal)
-                {
-                    encontrou = true;
-                    Console.WriteLine($"Despesa: Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
-                }
-            }
+            Manager.despesas.Where(d => d.Date >= dataInicial && d.Date <= dataFinal).ToList().
+                ForEach(item => Console.WriteLine($"Despesa: Id: {item.Id}, Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}"));
 
-            foreach (DespesasReceitas item in Manager.receitas)
-            {
-                if (item.Date >= dataInicial && item.Date <= dataFinal)
-                {
-                    encontrou = true;
-                    Console.WriteLine($"Receita: Data: {item.Date}, Valor: R${item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
-                }
-            }
-      
-            if (!encontrou)
-            {
-                Console.WriteLine("Não foi encontrado Despesas e Receitas nas Datas estipuladas!");
-            }
+            Manager.receitas.Where(d => d.Date >= dataInicial && d.Date <= dataFinal).ToList().
+                ForEach(item => Console.WriteLine($"Receita: Id: {item.Id}, Data: {item.Date}, Valor: R${item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}"));
         }
     }
 }

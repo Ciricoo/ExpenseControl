@@ -42,7 +42,7 @@ namespace ControleGastos.Service
             }
             Console.Clear();
             Console.WriteLine($"{(opcao == "1" ? "Despesa" : "Receita")} removida com sucesso!");
-            Console.WriteLine($"Data: {item.Date}, {(opcao == "1" ? $"Valor: R$-{item.Valor}" : $"Valor: R${item.Valor}")}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
+            Console.WriteLine($"Id: {item.Id}, Data: {item.Date}, {(opcao == "1" ? $"Valor: R$-{item.Valor}" : $"Valor: R${item.Valor}")}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
             
         }
     }

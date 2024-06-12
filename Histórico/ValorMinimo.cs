@@ -22,8 +22,12 @@ namespace ControleGastos.Histórico
             {
                 float menorDespesa = Manager.despesas.Min(d => d.Valor);
                 Console.WriteLine("Menor Despesa:");
-                DespesasReceitas itemDespesa = Manager.despesas.First(d => d.Valor == menorDespesa);
-                Console.WriteLine($"Data: {itemDespesa.Date}, Valor: R$-{itemDespesa.Valor}, Descrição: {itemDespesa.Descricao}, Categoria: {itemDespesa.Categoria}");
+                List<DespesasReceitas> itemDespesa = Manager.despesas.Where(d => d.Valor == menorDespesa).ToList();
+                foreach (DespesasReceitas item in itemDespesa)
+                {
+                    Console.WriteLine($"Id: {item.Id}, Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
+                }
+                
             }
 
             if (!Manager.receitas.Any())
@@ -34,8 +38,12 @@ namespace ControleGastos.Histórico
             {
                 float menorReceita = Manager.receitas.Min(d => d.Valor);
                 Console.WriteLine("Menor Receita:");
-                DespesasReceitas itemReceita = Manager.receitas.First(d => d.Valor == menorReceita);
-                Console.WriteLine($"Data: {itemReceita.Date}, Valor: R${itemReceita.Valor}, Descrição: {itemReceita.Descricao}, Categoria: {itemReceita.Categoria}");
+                List<DespesasReceitas> itemReceita = Manager.receitas.Where(d => d.Valor == menorReceita).ToList();
+                foreach (DespesasReceitas item in itemReceita)
+                {
+                    Console.WriteLine($"Id: {item.Id}, Data: {item.Date}, Valor: R${item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
+                }
+                
             }
         }
     }

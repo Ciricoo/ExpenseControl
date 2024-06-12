@@ -1,7 +1,5 @@
 ﻿using ControleDeGastos.Managers;
 using ControleGastos;
-using ControleGastos.Relatório;
-using System;
 
 namespace ControleDeGastos
 {

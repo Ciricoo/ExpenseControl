@@ -1,4 +1,5 @@
-﻿using ControleDeGastos.Managers;
+﻿using ControleDeGastos;
+using ControleDeGastos.Managers;
 
 namespace ControleGastos.Relatório
 {
@@ -18,6 +19,7 @@ namespace ControleGastos.Relatório
                 Console.WriteLine("Nenhuma despesa e receita foi adicionada!");
                 return;
             }
+
             while (true)
             {
                 Console.WriteLine("Data inicial: (dd/MM/yyyy)");
@@ -41,9 +43,8 @@ namespace ControleGastos.Relatório
                 }
             }
             
-
-            var despesasFiltradas = Manager.despesas.Where(t => t.Date >= dataInicial && t.Date <= dataFinal);
-            var receitaFiltradas = Manager.receitas.Where(t => t.Date >= dataInicial && t.Date <= dataFinal);
+            List<DespesasReceitas> despesasFiltradas = Manager.despesas.Where(t => t.Date >= dataInicial && t.Date <= dataFinal).ToList();
+            List<DespesasReceitas> receitaFiltradas = Manager.receitas.Where(t => t.Date >= dataInicial && t.Date <= dataFinal).ToList();
 
             float totalDespesas = despesasFiltradas.Sum(t => t.Valor);
             float totalReceitas = receitaFiltradas.Sum(t => t.Valor);

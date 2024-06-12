@@ -7,11 +7,10 @@ namespace ControleGastos.Histórico
     {
         public void BuscarDescricao()
         {
-            bool encontrado = false;
             string descricao;
             Console.WriteLine("Buscar por Descrição\n");
 
-            if (!Manager.despesas.Any() && !Manager.receitas.Any())
+            if (Manager.despesas.Any() is false && !Manager.receitas.Any())
             {
                 Console.WriteLine("Não existem despesas e receitas na lista!");
                 return;
@@ -33,25 +32,16 @@ namespace ControleGastos.Histórico
 
             Console.Clear();
 
-            foreach (DespesasReceitas item in Manager.despesas)
+            List<DespesasReceitas> despesas = Manager.despesas.Where(d => d.Descricao.Equals(descricao, StringComparison.OrdinalIgnoreCase)).ToList();
+            foreach (DespesasReceitas item in despesas)
             {
-                if(item.Descricao.Equals(descricao, StringComparison.OrdinalIgnoreCase))
-                {
-                    Console.WriteLine($"Despesa: Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
-                    encontrado = true;
-                }
-            }
-            foreach (DespesasReceitas item in Manager.receitas)
-            {
-                if (item.Descricao.Equals(descricao, StringComparison.OrdinalIgnoreCase))
-                {
-                    Console.WriteLine($"Receita: Data: {item.Date}, Valor: R${item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
-                    encontrado = true;
-                }
+                Console.WriteLine($"Despesa: Id: {item.Id}, Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
             }
 
-            if (!encontrado) {
-                Console.WriteLine("Não foi possível encontrar despesas e receitas com essa descrição!");
+            List<DespesasReceitas> receitas = Manager.receitas.Where(d => d.Descricao.Equals(descricao, StringComparison.OrdinalIgnoreCase)).ToList();
+            foreach (DespesasReceitas item in receitas)
+            {
+                Console.WriteLine($"Receita: Id: {item.Id}, Data: {item.Date}, Valor: R${item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
             }
 
         }

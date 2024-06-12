@@ -7,7 +7,6 @@ namespace ControleGastos.Histórico
     {
         public void BuscarCategoria()
         {
-            bool encontrado = false;
             string categoria;
 
             Console.WriteLine("Buscar por Categoria\n");
@@ -33,26 +32,16 @@ namespace ControleGastos.Histórico
 
             Console.Clear();
 
-            foreach (DespesasReceitas item in Manager.despesas)
+            List<DespesasReceitas> despesas = Manager.despesas.Where(d => d.Categoria.Equals(categoria, StringComparison.OrdinalIgnoreCase)).ToList();
+            foreach (DespesasReceitas item in despesas)
             {
-                if (item.Categoria.Equals(categoria, StringComparison.OrdinalIgnoreCase))
-                {
-                    Console.WriteLine($"Despesa: Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
-                    encontrado = true;
-                }
-            }
-            foreach (DespesasReceitas item in Manager.receitas)
-            {
-                if (item.Categoria.Equals(categoria, StringComparison.OrdinalIgnoreCase))
-                {
-                    Console.WriteLine($"Receita: Data: {item.Date}, Valor: R${item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
-                    encontrado = true;
-                }
+                Console.WriteLine($"Despesa: Id: {item.Id}, Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
             }
 
-            if (!encontrado)
+            List<DespesasReceitas> receitas = Manager.receitas.Where(d => d.Categoria.Equals(categoria, StringComparison.OrdinalIgnoreCase)).ToList();
+            foreach (DespesasReceitas item in receitas)
             {
-                Console.WriteLine("Não foi possível encontrar despesas e receitas com essa descrição!");
+                Console.WriteLine($"Receita: Id: {item.Id}, Data: {item.Date}, Valor: R${item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}");
             }
         }
     }

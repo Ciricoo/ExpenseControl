@@ -4,11 +4,9 @@ namespace ControleDeGastos.Service
 {
     internal class VizualizarFunction
     {
+        string opcao = Program.RetornarOpcao();
         public void Vizualizar()
         {
-
-            string opcao = Program.RetornarOpcao();
-
             Console.WriteLine("Vizualizar\n");
 
             if (opcao == "1")
@@ -22,7 +20,7 @@ namespace ControleDeGastos.Service
                     Console.WriteLine("Despesas:");
                     Manager.despesas.ForEach(item => Console.WriteLine($"Id: {item.Id}, Data: {item.Date}, Valor: R$-{item.Valor}, Descrição: {item.Descricao}, Categoria: {item.Categoria}"));
                 }
-                
+
             }
             else if (opcao == "2")
             {
