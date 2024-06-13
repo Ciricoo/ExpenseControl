@@ -83,7 +83,6 @@ namespace ControleGastos.Funções
                 }
 
                 return new DespesasReceitas(0, dataTime, valor, descricao, categoria);
-
             }
         }
     }

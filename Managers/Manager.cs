@@ -8,7 +8,7 @@ namespace ControleDeGastos.Managers
     public class Manager
     {
         AddFunction AddFunction = new AddFunction();
-        VizualizarFunction VizualizarFunction = new VizualizarFunction();
+        VisualizarFunction VizualizarFunction = new VisualizarFunction();
         EditarFunction EditarFunction = new EditarFunction();
         ExcluirFunction ExcluirFunction = new ExcluirFunction();
         RangeData RangeData = new RangeData();
